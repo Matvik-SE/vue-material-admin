@@ -41,7 +41,10 @@ const err = (error) => {
 service.interceptors.request.use((config) => {
   config.headers['Access-Control-Allow-Origin'] = '*'
   config.headers['Content-Type'] = 'application/json'
-  config.headers['Authorization'] = 'Bearer ' + store.getters.getAccessToken
+
+  if (store.getters.getAccessToken) {
+    config.headers['Authorization'] = 'Bearer ' + store.getters.getAccessToken
+  }
 
   return config
 }, err)

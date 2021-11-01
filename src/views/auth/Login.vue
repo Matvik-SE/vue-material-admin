@@ -11,7 +11,7 @@
             <v-alert type="success"> {{ $t('login_account') }} : admin/admin </v-alert>
             <v-form ref="form" v-model="formValid" class="my-10" lazy-validation>
               <v-text-field
-                v-model="formModel.username"
+                v-model="formModel.identifier"
                 append-icon="mdi-email"
                 autocomplete="off"
                 name="login"
@@ -20,7 +20,7 @@
                 type="text"
                 required
                 outlined
-                :rules="formRule.username"
+                :rules="formRule.identifier"
               />
               <v-text-field
                 v-model="formModel.password"
@@ -61,6 +61,8 @@
 </template>
 
 <script>
+import request from '@/util/request'
+
 const name = 'page-login'
 export default {
   name: name,
@@ -69,11 +71,11 @@ export default {
       loading: false,
       formValid: false,
       formModel: {
-        username: 'admin',
-        password: 'admin',
+        identifier: 'matvik.net@gmail.com',
+        password: '22612261',
       },
       formRule: {
-        username: [(v) => !!v || this.$t('rule.required', ['username'])],
+        identifier: [(v) => !!v || this.$t('rule.required', ['username'])],
         password: [(v) => !!v || this.$t('rule.required', ['password'])],
       },
       socialIcons: [

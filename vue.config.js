@@ -21,13 +21,10 @@ module.exports = {
 
   devServer: {
     proxy: {
-      '/api': {
-        target: process.env.VUE_APP_BASE_API,
+      '/': {
+        target: 'https://f21.app:9443',
         ws: false,
         changeOrigin: true,
-        pathRewrite: {
-          '^/api/': '/api/',
-        },
       },
     },
   },

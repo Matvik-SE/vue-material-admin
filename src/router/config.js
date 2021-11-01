@@ -63,6 +63,45 @@ export const protectedRoute = [
         },
         component: () => import('@/views/Dashboard.vue'),
       },
+      // Price Alerts
+      {
+        path: '/price-alerts',
+        meta: {
+          title: 'Price Alerts',
+          icon: 'mdi-currency-usd',
+        },
+        name: 'price-alerts',
+        props: (route) => ({
+          type: route.query.type,
+        }),
+        component: () => import('@/views/PriceTable.vue'),
+      },
+      // Percent Alerts
+      {
+        path: '/percent-alerts',
+        meta: {
+          title: 'Percent Alerts',
+          icon: 'mdi-percent-outline',
+        },
+        name: 'percent-alerts',
+        props: (route) => ({
+          type: route.query.type,
+        }),
+        component: () => import('@/views/PercentTable.vue'),
+      },
+      // Periodic Alerts
+      {
+        path: '/periodic-alerts',
+        meta: {
+          title: 'Periodic Alerts',
+          icon: 'mdi-repeat',
+        },
+        name: 'periodic-alerts',
+        props: (route) => ({
+          type: route.query.type,
+        }),
+        component: () => import('@/views/PeriodicTable.vue'),
+      },
       //calendar
       {
         path: '/calendar',

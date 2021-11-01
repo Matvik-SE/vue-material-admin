@@ -39,17 +39,17 @@ const actions = {
       }
     })
   },
-  login({ commit, dispatch }, { username, password }) {
+  login({ commit, dispatch }, { identifier, password }) {
     return request({
-      url: '/auth/login',
+      url: '/auth/local',
       method: 'post',
       data: {
-        username,
+        identifier,
         password,
       },
     }).then((resp) => {
       commit('SET_LOGIN', resp)
-      dispatch('fetchProfile')
+      // dispatch('fetchProfile')
     })
   },
   register({ commit, dispatch }, data) {
@@ -80,9 +80,8 @@ const actions = {
   },
 }
 const mutations = {
-  SET_LOGIN(state, { access_token, expires_in }) {
-    state.access_token = access_token
-    state.expires_in = expires_in
+  SET_LOGIN(state, { jwt }) {
+    state.access_token = jwt
   },
   SET_ACCESS_TOKEN(state, token) {
     state.access_token = token
