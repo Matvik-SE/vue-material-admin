@@ -72,7 +72,7 @@ export const protectedRoute = [
         },
         name: 'price-alerts',
         props: (route) => ({
-          type: route.query.type,
+          type: 'Price',
         }),
         component: () => import('@/views/PriceTable.vue'),
       },
@@ -85,9 +85,9 @@ export const protectedRoute = [
         },
         name: 'percent-alerts',
         props: (route) => ({
-          type: route.query.type,
+          type: 'Percent',
         }),
-        component: () => import('@/views/PercentTable.vue'),
+        component: () => import('@/views/PriceTable.vue'),
       },
       // Periodic Alerts
       {
@@ -98,9 +98,9 @@ export const protectedRoute = [
         },
         name: 'periodic-alerts',
         props: (route) => ({
-          type: route.query.type,
+          type: 'Periodic',
         }),
-        component: () => import('@/views/PeriodicTable.vue'),
+        component: () => import('@/views/PriceTable.vue'),
       },
       //calendar
       {
